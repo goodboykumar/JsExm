@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <style>
+       div span{
+            color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span id="minutes-1">00</span>:
+        <span id="seconds-1">00</span>:
+        <span id="miliseconds-1">00</span> <br> <br>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+    </div>
+
+</body>
+
+<script>
+//start timer
+let count=0;
+let minutes=0;
+let seconds=0;
+let miliseconds=0;
+let interval=0;
+let timerRunning =false;
+
+
+let startTimer = () => {
+    count++;
+    minutes = Math.floor((count/100)/60);
+    seconds=Math.floor((count/100)- (minutes*60));
+    miliseconds = Math.floor(count - (seconds * 100) - (minutes * 6000));
+    document.querySelector('#minutes-1').innerText=leadingZero(minutes);
+    document.querySelector('#seconds-1').innerText=leadingZero(seconds);
+    document.querySelector('#miliseconds-1').innerText=leadingZero(miliseconds); 
+
+}
+
+
+
+//start Time
+let startTime = document.querySelector('#start');
+
+startTime.addEventListener('click', function(){
+    if(!timerRunning){
+   interval= setInterval(startTimer,10); //to start the timer
+   timerRunning =true;
+}
+});
+
+
+
+
+
+
+//stop time
+
+let stopButton = document.getElementById('stop');
+stopButton.addEventListener('click', function(){
+    clearInterval(interval); //to stop the timer
+});
+
+
+
+
+
+
+//reset time
+let resetButton =document.querySelector('#reset');
+resetButton.addEventListener('click', function(){
+    clearInterval(interval); //to stop the timer
+     count=0;
+ minutes=0;
+ seconds=0;
+ miliseconds=0;
+ interval=0;
+ timerRunning =false;
+ document.querySelector('#minutes-1').innerText="00";
+    document.querySelector('#seconds-1').innerText="00";
+    document.querySelector('#miliseconds-1').innerText="00"; 
+
+
+});
+
+
+
+
+//separate function we create as leading zero
+let leadingZero = (time) => {
+    if(time <= 9){
+        return "0"+ time;
+    }
+    else{
+        return time;
+    }
+}
+
+</script>
+
+</html>

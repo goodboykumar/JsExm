@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finding the factorial of number</title>
+    <script>
+        var number=prompt("Enter a number:");
+        var fact=1;
+        debugger;
+        if(number==0){
+            console.log(`The factorial is ${number} is ${fact}`);
+
+        }
+        else if(number<0){
+            console.log(`-Ive values are not acceptable`);
+
+        }
+        else{
+            for(i=1; i<=number; i++){
+                fact=fact*i;
+            }
+            console.log(`The factorial of no.  ${number} is ${fact}`)
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

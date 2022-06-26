@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hiding Element</title>
+    <script>
+      //outer function
+      function fnIncre() {
+        var i = 1;
+        //inner function
+        return function () {
+          i = i + 1;
+
+          console.log(i);
+        };
+      }
+
+      var incre = fnIncre();
+    </script>
+  </head>
+  <body>
+    <input type="button" value="Increment" onclick="incre()" />
+    <p>Your answer will be shown in console window</p>
+    <p>Here my outer funct called inner fn()</p>
+  </body>
+</html>

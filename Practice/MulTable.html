@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+</head>
+<body>
+    Enter the no.<input type="number" id="fNo-1">
+    <input id="sNo-2" type="range" min="1" max="10"/>(1-10)
+<br>
+<br>
+<span id="span1"></span>
+X 
+<span id="span2"></span>
+=
+<span id="result"></span>
+
+
+<script>
+//get fNo
+let fNoref = document.querySelector('#fNo-1');
+fNoref.addEventListener('keyup',function(){
+    let theNo = Number(fNoref.value);
+    document.querySelector("#span1").innerText =theNo;
+    calculate();
+});
+
+//get SNo
+let sNoref = document.querySelector('#sNo-2');
+fNoref.addEventListener('input',function(){
+    let the2ndNo = Number(sNoref.value);
+    document.querySelector("#span2").innerText =the2ndNo;
+    calculate();
+});
+
+//calculate function
+
+let calculate = () =>{
+    let theNo = Number(document.querySelector("#span1").innerText);
+    let the2ndNo = Number(document.querySelector("#span2").innerText);
+    let mathRes = theNo*the2ndNo;
+    document.querySelector("#result").innerText = mathRes;
+};
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Examples</title>
+</head>
+<body>
+    <p>Function Uses</p>
+    <script>
+
+         /*  
+         normal function = function funName(){
+
+}
+
+Arrow function
+
+let functionName= () => {
+    //here we not need to mention function before () and all are as usual
+    //remove the function keyword and use => after ()
+}
+
+*/
+        
+        let result='';
+        function prntNo(StartnuM,EndnuM,Incre){
+            for(let i=StartnuM; i<=EndnuM; i +=Incre){
+                result += `${i} `;
+            }
+            console.log(result);
+        }
+        prntNo(10,50,5);
+
+        //function with-out parameter
+
+        function greet(){
+            console.log('Good Morning');
+        };
+        greet();
+
+        //another way of declaring a function of above example [Function Expression]
+        let greetMe = function greetMe(){
+            console.log("Good Morning Man");
+        };
+        greetMe();
+
+        //function with parameter
+        let wishMe = function (name,age){
+            let msg= `Hello ${name} you are  ${age} yrs old`;
+            console.log(msg);
+        };
+        wishMe('Sanjay',24);
+
+
+        //function with return type
+        let sum = function (a,b){
+            let resultIs = 2*(a+b);
+            return resultIs;  //Here it returns the value and we have to catch this and store this value 
+            //outside the function
+
+        };
+        let output= sum(10,20); //here we stored the return value
+        console.log(output,"check this line");
+
+
+        //function with an object as parameter
+        let printObj = function (obj){
+            console.log(obj);
+        };
+        printObj({name:"Sanjay", age:24, status:"single"});
+         
+        //creating obj outside and accessing it
+        let Mobile={
+            brand:"Apple",
+            color:"Black",
+            price:37000
+        };
+        printObj(Mobile);
+        
+
+        //function with array as parameter
+        let printArry = function(array){
+            let res = '';
+            for(let index in array){
+                res += `Index is ${index} = value : ${array[index]} \n`;
+            }
+            console.log(res);
+        };
+        printArry([10,20,30,40]);
+
+        let colors= ["White","Red","Green","Blue"];
+        printArry(colors);
+
+        //function inside an object
+
+        let student = {
+            firstName:"Arjun",
+            lastName:'Reddy',
+            Fullname: function(){
+                return `${this.firstName} ${this.lastName}`;
+            }
+        };
+        console.log(student.Fullname());
+
+        //Nested Function
+        let Outerfn= function(){
+            console.log('i am outer function');
+            let innerfn= function(){
+                console.log('i am inner function');
+
+            };
+             innerfn();
+        };
+        Outerfn();
+
+
+        //Twisted function
+
+        let twistedFn = function(){
+            let name="John";
+            let printStud = function(){
+                let student = {
+                    name:"Rajan",
+                    age:20,
+                    course:"CSE"
+                };
+                return student;
+            };
+            return printStud;
+        };
+        let inneerrfn=twistedFn();
+        let studentObj= inneerrfn();
+        console.log(studentObj.name);
+
+
+        //Prepare chicken curry with Functions
+
+        let glassBowl = function(rawChicken,masala){
+            //marinating the chicken
+
+            let marinatedChicken = `Mixing : (${rawChicken}+${masala})`;
+            return marinatedChicken;
+        };
+
+        //Cooked Chicken
+
+        let cookingBowl = function(marinatedChicken,water){
+            //cooking logic
+            let cookedChicken = `Cooking (${marinatedChicken}+ ${water})`;
+            return cookedChicken;
+        };
+
+        let eatingPlate = function(cookedChicken,rice){
+            //Eating logic
+            let eating=`Eating: (${cookedChicken}+${rice})`;
+            console.log(eating);
+        };
+
+        let rawChicken = '3Kg Chicken';
+        let masala='Garlic , Pepper, Salt';
+        let marinatedChicken= glassBowl(rawChicken,masala);
+        let water = '1Ltr water';
+        let cookedChicken=cookingBowl(marinatedChicken,water);
+        let rice='1Kg Rice';
+        eatingPlate(cookedChicken,rice);
+
+
+        //Array functions in javascript
+
+        //shift()=remove element from 1st index
+        console.log("------------------shift()---------------------");
+        let subject = ["C","C++","Java","Pyhon"];
+        console.log(subject);
+        subject.shift();
+        console.log(subject);
+
+        console.log("------------------unshift()---------------------");
+        //unshift=add element to the first index
+        console.log(subject);
+        subject.unshift('NodeJs');
+        console.log(subject);
+
+        console.log("------------------push()---------------------");
+        //push=add element to the last index
+        console.log(subject);
+        subject.push('ExPress.Js');
+        console.log(subject);
+
+        console.log("------------------pop()-----------------------")
+        //pop()=remove element from the last element
+
+        console.log(subject);
+        subject.pop();
+        console.log(subject);
+
+        console.log('--------------------sort()--------------------')
+        //sort()=to sort the array in ascending order
+        console.log(subject);
+        subject.sort();
+        console.log(subject);
+        //note:-sort method is not applicable for numbers for that we need to apply function type number
+
+        
+        console.log("-----------------reverse()-----------------------")
+        //reverse()=reverse all element
+
+        console.log(subject);
+        subject.reverse();
+        console.log(subject);
+
+        
+        console.log("------------------Reverse Elements-----------------------")
+        
+        let word=["Sam","Raju",'sidhart'];
+        console.log(word);
+        word.sort().reverse();
+        console.log(word);
+
+        
+        console.log("------------------splice()-----------------------")
+        //splice(index)=It removes all the elements form the given index
+
+        console.log(subject);
+        subject.splice(2); //after you provide the index no from there it will remove the rest elements 
+        console.log(subject);
+
+        console.log("------------------splice() example2-----------------------")
+        //splice(index,no.of elements)=It removes the  given elements form the given index
+        subject.push("C","C++","Java")
+        console.log(subject);
+        subject.splice(2,1); //on index 2 remove one element it says 
+        console.log(subject);
+
+        
+        console.log("------------------splice() example3-----------------------")
+        //splice(index,replace element,element)=It replace the  given element with the provided parameter
+        subject.push("C","Bootstrap")
+        console.log(subject);
+        subject.splice(2,1,"Jquery"); //on index 2 remove one element and replacing with jquery
+        console.log(subject);
+
+        
+        console.log("------------------join()-----------------------")
+        //join()=It is used to convert array into string with some delimeter
+        console.log(subject);
+        let textstr=subject.join(" - ")
+        console.log(textstr);
+
+        
+        console.log("------------------split()-----------------------")
+        //split()=It is used to convert string into array.
+        console.log(textstr);
+        let newtextstr=textstr.split(" - ")
+        console.log(newtextstr);
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

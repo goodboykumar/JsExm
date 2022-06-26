@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model </title>
+
+<style>
+ #dit{
+     background-color: darkseagreen;
+     color: white;
+     text-align: center;
+     padding: 15px;
+     margin: 15px;
+ }
+ button{
+     font-size: 20px;
+     padding: 14px 25px;
+ }
+ h1{
+     font-size: 43px;
+ }
+
+</style>
+
+</head>
+
+<body>
+    <nav>
+        <a href="#">Nothing to show</a>
+    </nav>
+    <div><p>Hello Man</p>
+    </div>
+
+    <div id="dit">
+        <h1 id="msg"></h1>
+        <button onclick="sayMsG('Good Morning','orange')">Good Morning</button>
+        <button onclick="sayMsG('Good Afternoon','purple')">Good AfterNoon</button>
+        <button onclick="sayMsG('Good Evening','limegreen')">Good Evening</button>
+    </div>
+    <div>
+        <pre>
+ 
+            Javascript Event Listeners
+            ===========================
+            1> Get the HTML element/Tag
+            2>Attach an event to the element/tag
+            3>Write a function for event handling
+
+            First provide id into the <!--<button id="gm-btn"> GoodMorning</button> -->
+
+            Now we will write the code in related .js file
+            Code 
+            =====
+            let gmButton = document.querySelector('#gm-btn');
+            gm-btn.addEventListener(click,function () {
+                printMsG('GoodMorning','limegreen')
+            });
+            </pre>
+    </div>
+
+
+    <script>
+
+
+
+        //title
+        console.log(document.title);
+
+        //body
+        console.log(document.body);
+
+        document.querySelector('nav');
+        //The output is in comment section
+        //<nav>​…​</nav>​<a href=​"#">​Nothing to show​</a>​</nav>​
+        document.querySelector('nav a');
+        //<a href=​"#">​Nothing to show​</a>​
+        document.querySelector('nav a').innerText;
+        //"Nothing to show"
+       let Pref= document.querySelector('div p');
+       Pref.innerText= 'Woow';
+
+       //style
+       Pref.style.backgroundColor = 'limegreen';
+       Pref.style.color = 'white';
+       Pref.style.textAlign= "center";
+       Pref.style.padding = "15px";
+       Pref.style.fontSize = '35px';
+       Pref.style.boxShadow = '0 0 10px black';
+
+
+
+        /*
+        Js==document.querySelector('nav');
+        CSS== suppose you provide ID selector --> #test{ code of statements like margin,padding,bg-color};
+        Jquery == $('nav');
+        CSS== background-color
+        Js== backgroundColor //By using style tag we can change the bg-color
+
+        */
+    document.write("---------------------------JS DOM 2------------------------------------------")
+   let sayMsG= (message,color) => {
+   
+    let h1Ref= document.querySelector('#msg')
+    h1Ref.innerText=message;
+    h1Ref.style.backgroundColor=color;
+    h1Ref.style.padding='15px';
+    h1Ref.style.boxShadow= '0 0 10px black';
+};
+sayMsG(message,color);
+
+document.write("---------------------------JS DOM 3(Event Listener)------------------------------------------")
+
+
+
+    </script>
+</body>
+
+</html>

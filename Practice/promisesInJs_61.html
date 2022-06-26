@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promises In Js</title>
+    <style>
+      table {
+        width: 80%;
+        margin: 50px;
+        text-align: center;
+      }
+     
+    </style>
+  </head>
+  <body>
+    <pre>
+        Promises In javascript
+        =======================
+        In promises we will take two callbacks one is resolve and another one is reject.They gonna called based
+        on the promise if the promise is fullfilled it will call resolve function if the promise is not full-
+        filled it will call the reject function
+    </pre>
+    <table border="2">
+      <thead>
+        <tr>
+          <th>Emp Id</th>
+          <th>Emp Name</th>
+          <th>Emp Age</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </body>
+  <script>
+    let doTask = (success, failure) => {
+      //doing the task
+      let isDone = false;
+      if (isDone) {
+        success("Task is Done");
+      } else {
+        failure("Task is Not Done");
+      }
+    };
+    doTask(
+      (msg) => {
+        console.log("task is done");
+      },
+
+      (msg) => {
+        console.error("task is not done");
+      }
+    );
+    //Actual Promise creation
+
+    // you are connected to db if you are getting data means resolve will work otherwise reject something went wrong
+
+    let cleanCamera = new Promise((resolve, reject) => {
+      isDone = true;
+      if (isDone) {
+        resolve("Cleaning is Done");
+      } else {
+        reject("Cleaning is not done");
+      }
+    });
+
+    //calling the new promise
+    cleanCamera
+      .then((message) => {
+        console.log(message);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    console.log(
+      "--------------------------------------------Dependent Promises -----------------------"
+    );
+
+    let buildProject = new Promise((resolve, reject) => {
+      let isComplete = true;
+      if (isComplete) {
+        resolve("Project Done");
+      } else {
+        reject("Project not done");
+      }
+    });
+
+    let attendTechnical = new Promise((resolve, reject) => {
+      isComplete = true;
+      if (isComplete) {
+        resolve("Technical Round Done");
+      } else {
+        reject("Technical Round not done");
+      }
+    });
+
+    let managerRound = new Promise((resolve, reject) => {
+      isComplete = true;
+      if (isComplete) {
+        resolve("manager Round Done");
+      } else {
+        reject("manager Round not done");
+      }
+    });
+
+    let hrRound = new Promise((resolve, reject) => {
+      isComplete = true;
+      if (isComplete) {
+        resolve("hr Round Done got job");
+      } else {
+        reject("hr Round result you failed");
+      }
+    });
+
+    buildProject
+      .then((messages) => {
+        let Result = `${messages} ->`;
+        attendTechnical
+          .then((messages) => {
+            Result += `${messages} ->`;
+            managerRound
+              .then((messages) => {
+                Result += `${messages} ->`;
+                hrRound
+                  .then((messages) => {
+                    Result += `${messages}`;
+                    console.log(Result);
+                  })
+                  .catch((err) => {
+                    console.error(err);
+                  });
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
+    console.log(
+      "--------------------------------------------real time example Promises -----------------------"
+    );
+
+    //Table concept using promise
+    let employees = [
+      { id: 1, name: "john", age: 25 },
+      { id: 2, name: "kate", age: 36 },
+    ];
+
+    //create Employee
+    let createEmployee = (employee) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          employees.push(employee);
+          let isCompleted =true; //result will vbe based on this
+
+          if(isCompleted){
+              resolve();
+          }
+          else{
+              reject("Something went wrong employee creation failed");
+          }
+        }, 2000);
+      });
+    };
+
+    let getEmployees =() => {
+        setTimeout(() => {
+            let employeeRows = '';
+            employees.forEach((employee) => {
+                employeeRows += `<tr>
+                    <td> ${employee.id} </td>
+                    <td> ${employee.name} </td>
+                    <td> ${employee.age} </td>
+                    </tr>`
+            })
+            //showing the data to the table
+            document.querySelector('#table-body').innerHTML = employeeRows
+        })
+    }
+
+    createEmployee({id:3,name:"david",age:47}).then(() => {
+        getEmployees();
+    }).catch((err) =>{
+        console.error(err)
+    })
+  </script>
+</html>

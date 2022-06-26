@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+    
+    <script>
+        let numbers = [10,20,30];
+        console.log(numbers);
+
+        //access the elements of an array
+        console.log(numbers[2]);
+        
+        //access the non-existing
+        console.log(numbers[3]); //undefined
+
+        //iteration of array elements
+        let colors=["Red","Yellow","Black","White","Blue"];
+
+        //normal for-loop
+        result='';
+        for(let i=0; i<=colors.length-1; i++){
+            result += `${colors[i]} `;
+        }
+        console.log(result);
+
+        //for-in will give index) where for-of is giving values loop
+        for(let a of colors){
+            console.log(a);
+        }
+
+        //forEach function upto ES5
+        result='';
+        colors.forEach(function(color){
+            result +=`${color} `
+        });
+        console.log(result);
+
+        //Arrow function from es6
+
+        result='';
+        colors.forEach((color) => {
+            result +=`${color} `;
+        });
+        console.log(colors);
+
+      /*  result='';
+        colors.forEach((color) =>  result +=`${color} `);
+        console.log(colors);  */
+
+
+        //Array of objects
+
+        let employees = [
+            {
+                id:1,
+                name:'Sanjay',
+                age:24,
+                work:"S/w Engineer"
+            },
+            {
+                id:2,
+                name:'Ajay',
+                age:34,
+                work:"S/w Developer"
+            },
+            {
+                id:3,
+                name:'Kajal',
+                age:46,
+                work:"Java Developer"
+            },
+            {
+                id:4,
+                name:'Sradha',
+                age:42,
+                work:"HR"
+            },
+            {
+                id:5,
+                name:'Surjyo',
+                age:43,
+                work:" Sr.S/w Engineer"
+            }
+        ];
+        console.log(employees);
+
+        //iterate employees
+        for(let employee of employees){
+            console.log(employee.name);
+        }
+
+        //filtering the junior employees age<35
+
+        let jrEmp =[];
+        for(let employee of employees){
+            if(employee.age <=35){
+                jrEmp.push(employee);
+            }
+        }
+        console.log(jrEmp); 
+
+
+    </script>
+</body>
+</html>

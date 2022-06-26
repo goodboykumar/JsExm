@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Scopes</title>
+</head>
+
+<body>
+<pre>
+    *There are two types of scope variables
+    i)Block scope  enclosed width
+    {
+        it can be statement if,for,switch
+    }
+    ii)Function scope [it can be arrow function,normal/function expression {if we want to access inside data we go for return method in fun}] 
+
+    There are also Global Scope/Parent scope variables & Local scope variables are used example shows in the scopes.html code!
+</pre>
+
+    <script>
+        let a = 10;
+        {
+            let a = 20;
+            {
+                let a = 30;
+                {
+                    let a = 40;
+                    console.log(a);
+                    // Output will be 40 because of local scope
+                   /* If we comment let a=40; then it will look for the parent scope and when we do console.log(a) in that
+                   block it will return the parent value (Remember)*/
+                }
+            }
+        }
+
+        console.log(a); //output will be 10 because of global scope
+    </script>
+</body>
+
+</html>

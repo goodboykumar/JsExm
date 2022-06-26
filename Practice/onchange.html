@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyup Event</title>
+</head>
+<body>
+    <form>
+        <h2>Select Your Subject</h2>
+       <select id="SelecT">
+           <option value="Html">Html</option>
+           <option value="Css">Css</option>
+           <option value="Javascript">Javascript</option>
+           <option value="React">React Js</option>
+       </select>
+    </form> <br> 
+    <span id="demo"></span>
+
+    <script>
+        let SelectBoX = document.querySelector('#SelecT');
+        
+        SelectBoX.addEventListener('change',function () {
+            let SelectItem =SelectBoX.value;
+            let demoRef = document.getElementById("demo");
+            demoRef.innerText = `You Selected: ` + SelectItem;
+        });
+        
+        
+    </script>
+</body>
+</html>

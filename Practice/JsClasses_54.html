@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Classes</title>
+</head>
+<body>
+    <pre>
+        *Class name must start with UpperCase. it is the blueprint of obj.
+        *Class contains special function called constructor.
+        *We have special functions getters and setters methods to access data.
+        Ex: class Mobile {
+                constructor(){
+
+                }
+        }
+
+        * getters & setters are the method in class oriented . getters is used for get the property of a class,
+        setters is used for set/change the property of a class
+    </pre>
+
+    <script>
+        //in functional way
+        let mobile = {
+            brand:"Apple",
+            price:35000,
+            color:'Silver'
+        };
+
+        console.log(mobile);
+
+        console.log("----------------------Classes-------------------");
+
+        //class name starts with Uppercase 
+        class Mobile {
+
+            //it is use to take parameters and initialise the values
+            constructor(Brand,Price,Color){
+                this.Brand=Brand;
+                this.Price=Price;
+                this.Color=Color;
+            }
+
+            //getter method
+            getBrand(){
+                return this.Brand;
+            }
+
+            setBrand(Brand){
+                this.Brand=Brand;
+            }
+            
+            getPrice(){
+                return this.Price;
+            }
+
+            setPrice(Price){
+                this.Price=Price;
+            }
+            
+            getColor(){
+                return this.Color;
+            }
+
+            setColor(Color){
+                this.Color=Color;
+            }
+
+
+
+            printSpecification(){
+                let spec = `BRAND:${this.getBrand()}
+                            PRICE:${this.getPrice()}
+                            COLOR:${this.getColor()}`
+                console.log(spec);
+            }
+        }
+
+
+        //creating the object using class
+        let Mobile1 = new Mobile("Apple",35000,"Silver");
+        Mobile1.printSpecification();
+        Mobile1.setBrand("Samsung Galaxy");
+        Mobile1.printSpecification();
+
+    </script>
+</body>
+</html>

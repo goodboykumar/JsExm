@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        Remove duplicate elements
+    </title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+   
+</body>
+<script>
+   let chars = [1,11,1,3,3,1,2];
+   debugger;
+
+let dupChars = chars.filter((c, index) => {
+    return chars.indexOf(c) !== index;
+});
+
+console.log(dupChars);
+ 
+</script>
+
+</html>

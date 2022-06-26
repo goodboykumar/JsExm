@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Ajax check
+        </title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input type="button" value="GetData" onclick="fnGet()"/>
+        <script>
+            function fnGet(){
+                var httpObj=new XMLHttpRequest();
+                httpObj.open('get','https:jsonplaceholder.typecode.com/user',true);
+                httpObj.send();
+                httpObj.onload=function(){
+                    var res=httpObj.responseText;
+                    console.log(res);
+                }
+                httpObj.onerror=function(){
+                    console.log('Something went wrong');
+                }
+            }
+        </script>
+    </body>
+</html>

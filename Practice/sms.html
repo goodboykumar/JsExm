@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS length</title>
+</head>
+<body>
+    
+    <textarea cols="55" rows="7" id="text-area" placeholder="Enter Your Message" maxlength="100"></textarea>
+    <h3>The Characters Remaining: <span id="char-count">0</span>/100</h3>
+
+    <script>
+        let textAreaele= document.querySelector('#text-area');
+        let Charele=document.querySelector("#char-count");
+        textAreaele.addEventListener('keyup', function(){
+            let textLength =textAreaele.value.length;
+            Charele.innerText = textLength;
+        });
+    </script>
+</body>
+</html>

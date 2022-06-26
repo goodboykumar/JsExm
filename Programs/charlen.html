@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check lchar</title>
+</head>
+<body>
+    <script>
+        var arr = ["asdf","sd","something","right","position"];
+
+var lgth = 0;
+var longest;
+
+for (var i = 0; i < arr.length; i++) {
+  if (arr[i].length > lgth) {
+    var lgth = arr[i].length;
+    longest = arr[i];
+  }
+}
+
+console.log(longest);
+    </script>
+</body>
+</html>

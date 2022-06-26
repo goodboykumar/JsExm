@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Using apply method  
+        </title>
+    </head>
+    <body>
+        <p id="demo"></p>
+    </body>
+    <script>
+        debugger;
+        var obj = {
+            'n1':10
+        }
+        function findSum(n2,n3){
+            console.log(this.n1+n2+n3);
+        }
+        findSum.apply(obj,[30,30]);
+    </script>
+</html>

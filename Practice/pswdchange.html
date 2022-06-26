@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Change in password</title>
+</head>
+<body>
+    <input type="password" id="pswd"/><span><input type="checkbox" id="checkbox"/>Show Password</span>
+    <script>
+        let passwordRef =document.getElementById("pswd");
+        let checkboxRef = document.querySelector('#checkbox');
+        checkboxRef.addEventListener('change', function(){
+            let typeAttribute = passwordRef.getAttribute('type');
+            if(typeAttribute === 'password'){
+                passwordRef.setAttribute('type','text');
+            }
+            else{
+                passwordRef.setAttribute('type','password');
+            }
+        });
+    </script>
+</body>
+</html>

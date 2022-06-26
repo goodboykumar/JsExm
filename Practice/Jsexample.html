@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Examples</title>
+</head>
+
+<body>
+
+    <script>
+        /*  
+         normal function = function funName(){
+
+}
+
+Arrow function 
+
+let functionName= () => {
+    //here we not need to mention function before () and all are as usual
+    //remove the function keyword and use => after ()
+}
+
+*/
+        //Let's return to examples
+
+        //Find the number of 'o' in the given string
+        let msg = 'Good MoOrning';
+        let findZeroes = (msg) => {
+            let count = 0;
+          
+            for (let i = 0; i < msg.length - 1; i++) {
+                let char = msg.charAt(i);
+                if (char === 'o' || char === 'O') {
+                    count++;
+                }
+            }
+            return count;
+
+        };
+
+        console.log(`The Zeroes in the strings are ${findZeroes(msg)}`);
+
+
+        //reverse the string using arrow function
+        msg = "Good Morning";
+        let ReverseStr = (str) => {
+            let temp = '';
+            for (let i = str.length - 1; i >= 0; i--) {
+                let char = msg.charAt(i);
+                temp += char;
+            }
+            return temp;
+            console.log(temp);
+
+        };
+        console.log(`${msg}The reverse is: ${ReverseStr(msg)}`);
+
+        //3. To check the given string is palindrome or not
+        msg = 'MoM';
+       
+        let isPalindrome = (str) => {
+            if (str === ReverseStr(str)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+            /* 
+            let ispalindrome = ()=> {
+                return(str===ReverseStr(str));
+            };
+            */
+        };
+        console.log(`${msg} is palindrome? result is: ${isPalindrome(msg)}`);
+
+
+        //Triangle String One
+        msg = "Sanjay";
+        debugger;
+        let TriangleOne = (str) => {
+            let tempStr = '';
+            for (let i = 1; i <= str.length; i++) {
+                tempStr += `${str.substr(0, i)} \n`;
+            }
+            return tempStr;
+        };
+        console.log(TriangleOne(msg));
+
+
+        //Triangle String two
+
+        let addSpace = (number) => {
+            let tempSpace = '';
+            for (let i = 1; i <= number; i++) {
+                tempSpace += ' ';
+            }
+            return tempSpace;
+        };
+
+        msg = "Sanjay";
+        let TriangleTwo = (str) => {
+            let tempStr = '';
+            for (let i = 0; i < str.length - 1; i++) {
+                tempStr += `${addSpace(i)}${str.substr(i)} \n`;
+            }
+            return tempStr;
+        };
+        console.log(TriangleTwo(msg));
+
+        //Triangle 3
+        msg = 'Sanjay';
+        let TriangleThree = (str) => {
+            let tempStr = '';
+            for (let i = msg.length; i >= 1; i--) {
+                tempStr += `${str.substr(0, i)} \n`;
+            }
+            return tempStr;
+        };
+        console.log(TriangleThree(msg));
+
+        //Triangle Four
+        msg = "Sanjay";
+        let TriangleFour = (str) => {
+            let tempStr = '';
+            for (let i = str.length - 1; i >= 0; i--) {
+                tempStr += `${addSpace(i)}${str.substr(i)} \n`;
+            }
+            return tempStr;
+
+        }
+        console.log(TriangleFour(msg));
+
+          
+
+
+
+    </script>
+</body>
+
+</html>

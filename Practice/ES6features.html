@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Features</title>
+</head>
+<body>
+    <pre>
+        ES6 / ES-2015 Features
+
+        1)Template strings (`) back tick operator
+        2)Optional Parameters
+        3)Arrow Function
+        4)for-of for-in loops
+        5)Destructing 
+        6)Spread operator
+    </pre>
+
+    <script>
+        //1. Template string (`)
+        let mobile={
+            brand: "Apple",
+            color: "silver",
+            price:37000
+        };
+
+        //ES5
+        let msg="BRAND: "+ mobile.brand+"COLOR: "+ mobile.color+"PRICE:"+ mobile.price;
+        console.log(msg);
+
+        //ES6
+        let msg1= `Brand: ${mobile.brand} Color:${mobile.color} Price: ${mobile.price}`;
+        console.log(msg1);
+
+        let template = `
+                        <ul> 
+                           <li>${mobile.brand}</li>
+                           <li>${mobile.color}</li>
+                           <li>${mobile.price}</li> 
+                        </ul>
+                        `;
+        document.write(template);
+
+
+        //2) Optional Parameters==In optional parameter by default we are providing the value so it will not result 
+             //undefined if we have not pass any value. 
+        
+        //example-1
+        let greet= function(name, age=35){
+            let msg2 = `Hello ${name} you are ${age}yrs old`;
+            console.log(msg2)
+        }
+        greet("John",);
+
+          //example-2
+
+          let printNumbers = function(start,end=10){
+              let result='';
+              for(let i=start; i<end; i++){
+                  result+=`${i} `;
+              }
+              console.log(result);
+          }
+          printNumbers(1);
+
+
+          //Limitation of Arrow Function
+
+          let student={
+              FirstName:"Sanjay",
+              LastName:"Khosla",
+              FullName: ()=> {
+               // return `${this.FirstName} ${this.LastName}`; here arrow function has limitations this will refer to global here.
+                  return `${student.FirstName} ${student.LastName}`;
+              }
+          };
+          console.log(student.FullName());
+
+          //for-of Loops
+          let employeesArr = [
+              {
+                  id:1,
+                  name:"Samuel",
+                  age:36,
+                  designation:"Manager",
+                  isActive:true
+              },
+              {
+                  id:2,
+                  name:"John",
+                  age:56,
+                  designation:"Sr.Manager",
+                  isActive:true
+              },
+              {
+                  id:3,
+                  name:"Laura",
+                  age:24,
+                  designation:"Developer",
+                  isActive:true
+              },
+              {
+                  id:4,
+                  name:"Rajan",
+                  age:62,
+                  designation:"Project Manager",
+                  isActive:false
+              }
+
+          ];
+
+          //Normal for loop to get name
+          let resultEl='';
+          for(let i=0; i<=employeesArr.length-1; i++){
+              let employee= employeesArr[i];
+              resultEl += `${employee.name.toUpperCase()} `;
+              
+          }
+          console.log(resultEl);
+                        
+          //for-in Loop
+
+          resultEl='';
+          for(let index in employeesArr){
+              let employee = employeesArr[index];
+              resultEl += `${employee.name.toUpperCase()} `;
+          }
+          console.log(resultEl);
+
+          //for-of loop
+          resultEl='';
+          for(let employee of employeesArr){
+            resultEl += `${employee.name.toLowerCase()} `;
+          }
+          console.log(resultEl);
+
+          //forEach function es5
+
+          resultEl='';
+          employeesArr.forEach(function(employee){
+            resultEl += `${employee.name.toLowerCase()} `;
+          });
+          console.log(resultEl);
+            //forEach function es6 with Arrow function
+
+            resultEl='';
+          employeesArr.forEach(employee =>{
+            resultEl += `${employee.name.toLowerCase()} `;
+          });
+          console.log(resultEl);
+
+          //Destructing in ES6
+
+           let Student={
+               name:"Arjun Reddy",
+               age:23,
+               course:"MBBS",
+               address: {
+                   street:"Hitech City",
+                   city:"Hyderabad",
+                   state:"TS"
+               },
+               hobbies:{
+                    regular:{
+                        id:1,
+                        regHobbies: ["Reading Books", 'Playing Football']
+                    },
+                    occasional:{
+                        id:1,
+                        occHobbies: ["Playing Cards", 'Online Games']
+                    }
+               }
+           };
+
+           //Destructing to get address
+           let {street , city, state}= Student.address;
+           console.log(`STREET: ${street} 
+                        CITY:${city}
+                        STATE: ${state}`);
+            //Regular Hobbies
+            let {regHobbies} = Student.hobbies.regular;
+            console.log(regHobbies);
+
+            //Spread Operator
+            let numbers = [10,58,754,1,851,91,161,6489];
+           /* 
+           oldway}}}
+
+            let min= Math.min(10,58,754,1,851,91,161,6489);
+            console.log(min); */
+            let min = Math.min(...numbers);
+            console.log(min,"This is the lowest no inside array");
+
+            let array1 = ["white","black","blue","purple"];
+            let array2 = ["yellow","silver","Orange"];
+            
+            /*
+            old way}}
+            let colors = [];
+            for(let color of array1){
+                colors.push(color);
+            }
+            for(let color of array2){
+                colors.push(color);
+            }
+            console.log(colors);
+            */
+
+            //using spread operator
+            let colors = [...array1 , ...array2];
+            console.log(colors);
+
+    </script>
+</body>
+
+
+</html>

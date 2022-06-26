@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Using Call() Method</title>
+       
+    </head>
+    <body>
+ <p id="demo"></p>
+    </body>
+    <script>
+        debugger;
+       var myObj = {
+           firstName:"Sanjay",
+           lastName:"Khosla",
+           fullName: function(){
+               return this.firstName + " "+ this.lastName;
+           }
+       }
+       x = myObj.fullName();
+       document.getElementById("demo").innerHTML = x;
+    </script>
+</html>

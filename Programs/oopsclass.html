@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+    <title>
+       
+        Print the function class
+        <meta charset="utf-8">
+    </title>
+
+</head>
+
+<body>
+    <script>
+        debugger;
+        function arth() {
+            //variables
+             this.a = 10;
+             this.b = 20;
+            //methods
+            this.add = function () {
+                return this.a + this.b
+            }
+
+            this.minus = function () {
+                return this.a - this.b
+            }
+            arth.prototype.a=10;
+             var obj=new arth(); 
+             obj.add(); //30
+
+        }
+    </script>
+</body>

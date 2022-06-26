@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Using Forms
+        </title>
+    </head>
+    <body>
+        <form id="frm1">
+            FirstName: <input type="text" value="" name="fname"> <br>
+            LastName: <input type="text" value="" name="lname"> <br>
+            <input type="submit" value="submit"/>          
+        </form>
+        <p id="demo"></p>
+        <button onclick="click()">Try</button>
+    </body>
+    <script>
+        function click() {
+            var x = document.forms["frm1"];
+            var text = "";
+            var i;
+            for (i = 0; i < x.length; i++) {
+                text += x.elements[i].value + "<br>";
+  }
+  document.getElementById("demo").innerHTML = text;
+
+            
+        }
+    </script>
+</html>

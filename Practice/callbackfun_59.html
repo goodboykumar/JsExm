@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callback Functions</title>
+  </head>
+  <body>
+    <pre>
+        Callback
+        ============
+        Not only string,number,array,object as parameter we can also take a function as a parameter in callback function
+        ->A function which takes another function as an parameter is known as callbaacks
+    </pre>
+    <table border="2">
+      <thead>
+        <tr>
+          <th>Emp Id</th>
+          <th>Emp Name</th>
+          <th>Emp Age</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </body>
+  <script>
+    console.log(
+      "-----------------------------------not using callback-------------------------------------------"
+    );
+    let calculate = (a, b, operation) => {
+      let result = "";
+      if (operation === "sum") {
+        result = a + b;
+      }
+
+      if (operation === "mul") {
+        result = a * b;
+      }
+
+      return result;
+    };
+
+    let output = calculate(10, 20, "sum");
+    console.log(output);
+    console.log(
+      "----------------------------------- using callback-------------------------------------------"
+    );
+    let sum = (a, b) => {
+      return a + b;
+    };
+
+    let mul = (a, b) => {
+      return a * b;
+    };
+
+    let calculate1 = (a, b, callback) => {
+      result = "";
+      return callback(a, b); //calling sum function sum(a,b)
+    };
+
+    output = calculate1(10, 20, sum);
+    console.log(output);
+
+    output = calculate1(10, 20, mul);
+    console.log(output);
+
+    output = calculate1(10, 7, (a, b) => {
+      return a - b;
+    });
+    console.log(output);
+    console.log(
+      "----------------------------------- using callback with Real time use-------------------------------------------"
+    );
+
+    //initial array of object
+    let employees = [
+      { id: 1, name: "John", age: 35 },
+      { id: 2, name: "Rajan", age: 56 },
+    ];
+
+    //function with callback
+    let createEmployee = (employee,callback1) => {
+      setTimeout(() => {
+        employees.push(employee); //pusing the objects into employees
+        callback1();
+      }, 3000);
+    };
+
+    let getEmployees = () => {
+        setTimeout(() => {
+            let employeeRows = '';
+            employees.forEach((employee) => {
+                employeeRows += `<tr>
+                    <td> ${employee.id} </td>
+                    <td> ${employee.name} </td>
+                    <td> ${employee.age} </td>
+                    </tr>`
+            })
+            //showing the data to the table
+            document.querySelector('#table-body').innerHTML = employeeRows
+        })
+    };
+
+    createEmployee({id:3, name:"wilson", age:25}, getEmployees);
+    getEmployees();
+  </script>
+</html>

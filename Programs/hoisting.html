@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Hoisting
+        </title>
+    </head>
+    <body>
+        <script>
+           /* hoistedVariable = 3;
+            console.log(hoistedVariable); //output 3 even when the variable is declared after iniatilazation
+            var hoistedVariable;
+            */
+
+           
+            hoistedFunction(); //Written hello world even when the function is declared after calling
+            function hoistedFunction(){
+                console.log("Hello World!");
+            }
+
+             
+        </script>
+    </body>
+</html>

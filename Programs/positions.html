@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Positions in Css</title>
+
+    <style>
+      /*  
+        static: default position for any html
+        relative: this position is relative to its own current position (independent)
+        absolute:it is depening upon its parent element
+        fixed:it will be fixed to given postion
+        sticky: stick to the particular element while scroll
+
+        */
+
+      .container {
+        width: 500px;
+        height: 500px;
+        background-color: rgb(0, 0, 0, 0.5);
+        position: relative;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        box-shadow: 0 0 5px black;
+      }
+      .box1 {
+        background-color: red;
+        position: relative;
+        left: 400px;
+        top: 200px;
+      }
+      .box2 {
+        background-color: limegreen;
+        position: absolute;
+      }
+      .box3 {
+        background-color: yellow;
+        position: absolute;
+        top: 50%;
+        bottom: 50%;
+        left: 50%;
+        right: 50%;
+      }
+      .box4 {
+        background-color: teal;
+      }
+      .box5 {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box1"></div>
+    <div class="container">
+      <div class="box box2"></div>
+      <div class="box box3"></div>
+    </div>
+    <div class="box box4"></div>
+    <div class="box box5"></div>
+  </body>
+</html>

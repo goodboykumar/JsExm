@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyup Event</title>
+</head>
+<body>
+    <form>
+        UserName<input type="text" id="Input"/>
+        <p id="get1"></p>
+    </form>
+
+    <script>
+        let InputRef = document.getElementById('Input');
+        InputRef.addEventListener('keyup',function () {
+            let TextEntered = InputRef.value;
+            document.querySelector('#get1').innerText =TextEntered;
+        });
+        
+        
+    </script>
+</body>
+</html>

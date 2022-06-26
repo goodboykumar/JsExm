@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Object</title>
+</head>
+<body>
+    
+    <script>
+        //date object
+
+        let date=new Date();
+        console.log(date);
+
+        //proper date
+        let currentDate = new Date().toLocaleDateString();
+        console.log(currentDate);
+        
+
+        //proper time
+        let time = new Date().toLocaleTimeString();
+        console.log(time);
+
+        //USA date
+        let options = {timeZone: 'America/New_York' };
+        let usaDate = new Date().toLocaleDateString('en-US',options);
+        console.log(usaDate);
+
+        //USA time
+        options= {timeZone: 'America/New_York' };
+        let usaTime = new Date().toLocaleTimeString('en-US',options);
+        console.log(usaTime);
+
+        //get today
+        let Today = new Date().getDay();
+        console.log(Today); //result is '4' because it denoted as 0-6 0>Sunday you write switch case
+        
+        //get Month
+        let Month = new Date().getMonth();
+        console.log(Month); //result is '3' because it denoted as 0-6 0>January you write switch case
+
+        //custom Date
+        let c_date = new Date().getDate();
+        let c_month = new Date().getMonth();
+        let c_year = new Date().getFullYear();
+        console.log(`${c_date}-${c_month}-${c_year}`);
+        console.log(`${c_date}.${c_month}.${c_year}`);
+
+    </script>
+</body>
+</html>

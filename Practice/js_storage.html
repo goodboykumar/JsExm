@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local & Session  Storage</title>
+</head>
+<body>
+
+
+
+    <script>
+        /*
+        localStorage-->
+          -> setItem('key','value'); //create / update
+          ->getItem('key'); //read
+          ->removeItem('key'); //delete
+          ->clear();
+
+          
+     sessionStorage-->
+         -> setItem('key','value'); //create / update
+          ->getItem('key'); //read
+          ->removeItem('key'); //delete
+          ->clear();
+
+        */
+
+     //set   
+    let empName ='John';
+    localStorage.setItem('name',empName);
+
+    //get
+    console.log(localStorage.getItem('name'));
+
+    //delete
+    localStorage.removeItem('name');
+
+    //clear
+   // localStorage.clear();
+
+   //local storage with array
+   let colors = [{id:1, name: 'white'}, {id:2, name: 'black'}, {id:3, name: 'yellow'}];
+   localStorage.setItem('colors', colors);
+   //[object Object],[object Object],[object Object]  (Output)
+   localStorage.setItem('colors', JSON.stringify(colors));
+   console.log(colors);
+
+   //session storage
+
+   //set
+   sessionStorage.setItem('name',"sanjay");
+
+   //get
+   console.log(sessionStorage.getItem('name'));
+
+    //delete
+    sessionStorage.removeItem('name');
+    </script>   
+</body>
+</html>

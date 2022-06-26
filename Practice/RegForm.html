@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Register your form
+    </title>
+    <style>
+        input[type=text]{
+            background-color: brown;
+        }
+        input[type=password]{
+            background-color: yellow;
+        }
+        button{
+            
+            background-color: white;
+        }
+        button:hover{
+            background-color: orange;
+        }
+    </style>
+    <script>
+        function fget() {
+            var UserName = document.getElementsByTagName('input')[0].value;
+            var Password = document.getElementsByTagName('input')[1].value;
+            var male = document.getElementsByTagName('input')[2];
+            var female = document.getElementsByTagName('input')[3];
+            var Gender = "";
+            var Hobbies = "";
+            if (male.checked) {
+                Gender = male.value
+            }
+            if (female.checked) {
+                Gender = female.value
+            }
+            var Cricket = document.getElementsByTagName('input')[4];
+            var Hockey = document.getElementsByTagName('input')[5];
+            var Badmintion = document.getElementsByTagName('input')[6];
+            if (Cricket.checked) {
+                Hobbies += Cricket.value
+            }
+            if (Hockey.checked) {
+                Hobbies += "," + Hockey.value
+            }
+            if (Badmintion.checked) {
+                Hobbies += "," + Badmintion.value
+            }
+            document.getElementById('result').innerHTML = "UserName:-" + UserName + "<br>" + "Password:-" + Password + "<br>" + "gender:-" + Gender + "<br>" + Hobbies;
+         
+
+        }
+    </script>
+</head>
+
+<body>
+    <label>
+        UserName:
+        <input type="text"> <br>
+        Password:
+        <input type="password"> <br>
+        <span>Select Your Gender </span>
+        <br>
+        <input type="radio" name="gender" value="M"> Male<br>
+        <input type="radio" name="gender" value="F"> Female<br>
+        <p>Your Hobbies</p>
+        <input type="checkbox" value="Cricket" name="Hobbies"> Cricket
+        <input type="checkbox" value="Hockey" name="Hobbies"> Hockey
+        <input type="checkbox" value="Badmintion" name="Hobbies"> Badmintion <br>
+        <p>Select Your City</p>
+        <select>
+            <option>Ind</option>
+            <option>Aus</option>
+            <option>Afg</option>
+            <option>Kor</option>
+            <option>Jap</option>
+        </select> <br>
+        <br> <br>
+        <button onclick="fget()">Submit</button>
+    </label>
+    <p id="result" class="text-center"></p>
+    <a href="https://www.google.com/"> <img src="../Nit/Capture.PNG" width="80" height="30"> </a>
+</body>
+
+</html>

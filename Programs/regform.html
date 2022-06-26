@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>
+                Registration form
+            </title>
+            <style>
+                form{
+                    margin: 0%;
+                    padding: 10px;
+                    border: 1px solid red;
+                    
+                }
+
+                form>div {
+                    text-align: center;
+                    
+                }
+            </style>
+    </head>
+    <body>
+        <form>
+            <div>
+                Username : <input type="text"/> <br>
+                Password : <input type="text"/> <br>
+               <span> Gender </span> :
+               Male<input type="radio" value="male" name="gender">
+                Female<input type="radio" value="female" name="gender"> <br>
+                Interest:
+                Coding<input type="checkbox" name="code" value="Coding">
+                Programming<input type="checkbox" name="program" value="Programming"> <br>
+                <button onclick="reg()"> Submit</button> <br>
+
+                <p id="res"></p>
+
+            </div>
+        </form>
+    </body>
+    <script>
+        function reg(){
+        var UserN =document.getElementsByTagName("input")[0].value;
+        var UserPwd =document.getElementsByTagName("input")[1].value;
+        var M =document.getElementsByTagName("input")[2].value;
+        var F =document.getElementsByTagName('input')[3].value;
+        var Gen ="";
+        if(male.checked){
+            Gen=male.value
+        }
+        if(female.checked){
+            Gen=female.value
+        }
+        var Codin="";
+        var Coding = document.getElementsByTagName('input')[4].value;
+        var Prog = document.getElementsByTagName('input')[5].value;
+        if(Coding.checked){
+                                Codin +=Cricket.value
+                            }
+        if(Programming.checked){
+                                Codin += ","+Hockey.value
+                            }
+       document.getElementById("res").innerHTML="Username-"+ UserN+"<br>"+"Password-"+UserPwd+"<br>"+"Gender is-"+Gen+"<br>"+"Interested in"+Codin;
+    }
+ reg();
+    </script>
+</html>

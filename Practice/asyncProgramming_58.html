@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Programming</title>
+</head>
+<body>
+    <pre>
+        sync= line by line execution
+        async = as per requirement calling the execution
+
+        Async can be achieved using = 1> callbacks 2> Promises 3> async-await
+
+    </pre>
+</body>
+<script>
+    //sync line by line execution
+console.log('car 1');
+console.log('car 2');
+console.log('car 3');
+console.log('car 4');
+console.log('car 5');
+
+console.log('------------------------------------async-----------------');
+console.log('car 1');
+console.log('car 2');
+setTimeout(() => {
+    console.log('car 3');
+},5000)
+console.log('car 4');
+console.log('car 5');
+
+</script>
+</html>

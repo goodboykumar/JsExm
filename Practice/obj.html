@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Object</title>
+</head>
+<body>
+    
+    <script>
+        let mobile ={
+            brand:"Real Me",
+            color:"Blue",
+            price:17000,
+            display:"Amoled",
+            branches:{
+                location:"hyd",
+                isAvailable:true
+            }
+            
+        }
+        console.log(mobile); //To display the objects in console
+        console.log(mobile.brand); //to display the mobile property
+        console.log(mobile.ram); // undefined because property key is not assigned
+        console.log(mobile['price']); //returns 17000 (another way)
+        console.log(mobile.branches.isAvailable); //using nested property
+
+        //acsess the properties using [] notation dynamically
+        let prop="display";
+        
+        console.log(mobile.prop); //undefined as line no.20
+        console.log(mobile[prop]); //dynamically accessing through line no.24
+        
+
+        //CRUD operation in objects
+
+        //Creating
+        let camera = {};
+        camera.name="Nikon";
+        camera.accessories=true;
+        camera.prices=30000;
+
+        console.log(camera);
+
+        //Reading
+        console.log(camera.accessories); //true
+
+        //Update
+        camera.prices=45000;
+        console.log(camera.prices); //here it is case-sensitive
+
+        //Delete
+        delete camera.prices;
+        console.log(camera.prices); //undefined
+    </script>
+</body>
+</html>

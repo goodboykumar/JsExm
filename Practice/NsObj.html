@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number String  & Object</title>
+</head>
+<body>
+    
+    <script>
+        //Number
+
+        //max number
+        console.log(Number.MAX_SAFE_INTEGER); //it will print the highest number
+
+        //min number
+        console.log(Number.MIN_SAFE_INTEGER); //it will print the lowest number
+
+        //pos infinity
+        console.log(Number.POSITIVE_INFINITY); //infinity
+
+        //Negative infinity
+        console.log(Number.NEGATIVE_INFINITY);
+
+        //parse int
+        let str1 = '100.145';
+        let num1 = Number.parseInt(str1);
+        console.log(num1);
+        console.log(`${typeof str1}=> ${typeof num1}`);
+
+        //parse float
+        let str2 = '100.145';
+        let num2 = Number.parseFloat(str2);
+        console.log(num2);
+        console.log(`${typeof str2}=> ${typeof num2}`);
+        
+
+        //toString
+        let num3 = 100;
+        let numStr = num3.toString();
+        console.log(numStr);
+        console.log(`${typeof num3} => ${typeof numStr}`);
+
+        //toFixed
+        let amount = 250;
+        console.log(amount.toFixed(2)); //250.00 in rupees format
+
+
+        //String Related Operation
+        let msg = "Good Morning";
+        //length
+        console.log(msg.length) ; //12 to get the length space is also counted
+        //toUppercase
+        console.log(msg.toUpperCase());
+        //toLowercase()
+        console.log(msg.toLowerCase());
+        //substr(startindex,no.of chars)
+        console.log(msg.substr(0,4)); //Good
+        //substr(one index upto last)
+        console.log(msg.substring(5));
+        //charAt
+        console.log(msg.charAt(5));
+        //ChacodeAt [ASCII]
+        console.log(msg.charCodeAt(6));
+
+
+
+        //Json Object
+        /* 
+           String=> Object: parse();
+           Object=>Sring: stringfy();
+        */
+        let student = {
+            name:"Sanjay",
+            age:24,
+            course : "UI Technologies",
+            College:"Wesley"
+        };
+        console.log(student);
+
+        //converting object to string
+        let StudentStr=JSON.stringify(student);
+        console.log(StudentStr);
+
+        //converting string into object
+        let newStudent = JSON.parse(StudentStr);
+        console.log(newStudent);
+
+    </script>
+</body>
+</html>

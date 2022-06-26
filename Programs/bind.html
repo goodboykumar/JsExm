@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Using bind method
+        </title>
+    </head>
+    <body>
+
+    </body>
+    <script>
+        var obj = {
+            'n1':10
+        }
+        function findSum1(n2,n3){
+            console.log(this.n1+n2+n3);
+        }
+        var findSum1 = findSum1.bind(obj);
+        findSum1(20,50);
+    </script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Subclasses Inheritance concept</title>
+</head>
+<body>
+    <pre>
+        *Here in the script part the Person is the parent class and Employee is the child class.
+        *In the parent class the constructor is defined and we have to write get function to retrive the data.
+        *extends in class refers it will add additional properties to the class.
+        *super() will call the parent class constructor properties.
+        *In line 52 we have not defined greet() but it is using scope and accessing the parent scope i mean greet().
+            it is like it search for the greet() inside local scope when it unable to find it again it search to 
+            the upper level of scope. 
+        *Again we have write greet() which is called overriding functionality we have overridden the greet() in employee.
+
+    </pre>
+
+    <script>
+        class Person{
+            constructor(firstName,lastName){
+                this.firstName=firstName;
+                this.lastName=lastName;
+            }
+            getFirstName(){
+                return this.firstName;
+            }
+            getLastName(){
+                return this.lastName;
+            }
+            greet(){
+                let msg=`Welcome Mr : ${this.getFirstName()} ${this.getLastName()}`;
+                console.log(msg);
+            }
+        
+        }
+        
+        class Employee extends Person {
+            constructor(firstName,lastName,age,designation){
+                super(firstName,lastName);
+                this.age=age;
+                this.designation=designation;
+            }
+            getAge(){
+                return this.age;
+            }
+            
+            getDesignation(){
+                return this.designation;
+            }
+            greet(){
+                let msg = `Hello Mr: ${this.getFirstName()} ${this.getLastName()} Age: ${this.getAge()} Designation: ${this.getDesignation()}`
+                console.log(msg);
+            }
+        }
+        let employee = new Employee("John","Doe",45,"Manager");
+        employee.greet();
+
+        class Customer extends Person {
+            constructor(firstName,lastName,age,location){
+                super(firstName,lastName);
+                this.location=location;
+                this.age=age;
+            }
+            getAge(){
+                return this.age;
+            }
+            getLocation(){
+               return this.location
+            }
+            greet(){
+                let msg = `Hello Mr: ${this.getFirstName()} ${this.getLastName()} Age: ${this.getAge()} Location: ${this.getLocation()}`
+                console.log(msg);
+            }
+        }
+        let customer =new Customer("Alex","Mark",28,"USA");
+        customer.greet();
+
+    </script>
+    
+</body>
+</html>

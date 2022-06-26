@@ -1,0 +1,18 @@
+.is-form-valid{
+    border: 1px solid limegreen;
+    border-left: 10px solid limegreen;
+    box-shadow: 0 0 5px limegreen;
+}
+.is-form-invalid{
+    border: 1px solid limegreen;
+    border-left: 10px solid limegreen;
+    box-shadow: 0 0 5px limegreen;
+}
+.text-success{
+    border: 1px solid limegreen !important;
+    font-size: 14px !important;
+}
+.text-danger{
+    border: 1px solid orangered !important;
+    font-size: 14px !important;
+}

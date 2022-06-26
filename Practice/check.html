@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Check</title>
+</head>
+<body>
+    <input type="text"> <br>
+    <button onclick="fnGet()">Click Me</button>
+    <p id="demo"></p>
+
+    <script>
+        function fnGet(){
+        var Name=document.getElementsByTagName('input')[0].value;
+        console.log(Name);
+        document.getElementById('demo').innerText=Name;
+        console.log(Name);
+
+        alert(`Hello ${Name}`)
+
+    }
+    </script>
+    
+</body>
+</html>

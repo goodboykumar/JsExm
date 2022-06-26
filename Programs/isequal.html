@@ -1,0 +1,22 @@
+<!--
+    Write a js program to check two numbers and return true if one of the number is 100 or if the sum is 100
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check the number is equal to 100</title>
+</head>
+<body>
+    
+    <script>
+        const isEqualTo100 = (a,b) => a===100 ||b===100 ||(a+b) ===100;
+        document.write(isEqualTo100 (100,0));  
+        document.write(isEqualTo100 (0,100));
+        document.write(isEqualTo100 (10,02));
+        document.write(isEqualTo100 (50,50));
+    </script>
+</body>
+</html>
