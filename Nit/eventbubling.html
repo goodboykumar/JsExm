@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+    <head>
+        <title>
+                Event Bubling
+        </title>
+        <style>
+            div{
+                border: 1px solid red;
+                padding: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1">
+            Div1
+            <div id="div2">
+                    Div2
+                <div id="div3">
+                        Div3
+                </div>
+            </div>
+        </div>
+        <script>
+            var divs=document.getElementsByTagName('div');
+            for(var i=0;i<divs.length;i++){
+                divs[i].addEventListener('click',function()
+                {
+                 alert(this.id);   
+                },true);
+            }
+        </script>
+        
+    </body>
+</html>

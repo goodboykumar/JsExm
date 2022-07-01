@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+                Exception Handling
+        </title>
+    </head>
+    <body>
+        
+        <script>
+            function fq(){
+                var name;
+                debugger;
+                try{
+                    console.log('name.lenght');
+                }catch(e){
+                    name="sachin";
+                    
+                }
+                finally{
+                    console.log('am executed always');
+                }
+                console.log("Hello..."+name);
+            }
+            
+        </script>
+        <input type="button" value="submit" onclick="fq()"/>
+    
+    </body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  
+</head>
+<body>
+   <input type="button" value="submit" onclick="fnSubmit()" />
+   <script>
+       function fnSubmit(){
+        var name;
+           try{
+            console.log(name.length);
+           }catch(e){
+             name="Sachin";
+           }
+           finally{
+             console.log('am executed always');
+           }
+
+            console.log("Hello..."+name);
+       }
+
+   </script>
+</body>
+</html> -->

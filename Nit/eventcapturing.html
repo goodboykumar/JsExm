@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+    <head>
+        <title>
+                Event Capturing
+        </title>
+        <style>
+            div{
+                border: 1px solid red;
+                padding: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div onclick="alert('Div1')">
+            Div1
+            <div onclick="alert('Div2')">
+                    Div2
+                <div onclick="alert('Div3')">
+                        Div3
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

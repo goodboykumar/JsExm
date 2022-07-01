@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+    <head>
+        <title>
+                Get entered elements
+        </title>
+        <style>
+           span {text-decoration: line-through;}
+        </style>
+        <script>
+                var arr=[];
+                function myfun(){
+                    var name=document.getElementsByTagName('input')[0].value;
+                    if(arr.indexOf(name)==-1){
+                        arr.push(name);
+                        newFun();
+                    }else{
+                        alert("This name already exist")
+                    }
+                function newFun(){
+                    var list="";
+                    arr.forEach(function(e,i){
+                        list=list+ "<li>"+e+"</li>";
+                    });
+                    var ol="<ol onclick='clicker(event)'>"+list+"</ol>";
+                    document.getElementById('hello').innerHTML=ol;
+                }
+                }
+                function clicker(event){
+                    var ref=event.target;
+                    var targ=ref.getAttribute("style");
+                    if(targ==null){
+                        ref.style.color="red";
+                    }else{
+                        ref.removeAttribute("style");
+                    }
+                }
+        </script>
+    </head>
+    <body>
+        Name: <input type="text">
+        <button onclick="myfun()">Submit</button>
+        <span id="hello"></span>
+    </body>
+</html>

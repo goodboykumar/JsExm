@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+    <head>
+        <title>
+                Menu with events
+        </title>
+        <script>
+            function fnMenu(eve){
+                if(eve.target.nodeName=='DIV'){
+                    return;
+                }
+                var activeEle=document.querySelector('a[style]');
+                if(activeEle){
+                    activeEle.removeAttribute('style');
+                }
+                eve.target.style.color='red'
+            }
+        </script>
+    </head>
+    <body>
+        <div onclick="fnMenu(event)">
+        <a>Home</a>
+        <a>About</a>
+        <a>Contact</a>
+        <a>Service</a>
+        </div>
+    </body>
+</html>

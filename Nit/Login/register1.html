@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<link rel="stylesheet" href="styles.css"></link>
+<title></title>
+	</head>
+	<body>
+<div id="header">
+ Form</div>
+<p class='text-center'>
+  <span>first name</span>
+  <input type="text" id="fn">
+</p>
+<p class='text-center'>
+  <span>User id</span>
+  <input type="text" id="uid">
+</p>
+<p class='text-center'>
+  <span>Password</span>
+  <input type="password" id="pwd">
+</p>
+<p class='text-center'>
+  <span>email</span>
+  <input type="text" id="email">
+</p>
+<p class='text-center'>
+  <input type="button" value="Register" onclick="fnRegister()">
+  <a href="login.html">go to Login</a>
+</p>
+<p class='text-center'>
+  <b id="res"></b>
+</p>
+<div id="footer">
+&copy 2019
+</div>
+<table border="1px" align="center">
+	<thead>
+		<th>FirstName</th>
+		<th>U-id</th>
+		<th>pwd-</th>
+		<th>email-</th>
+	</thead>
+</table>
+	</body>
+<script>
+  function fnRegister(){
+     //get the references
+	 var fnRef=document.getElementById('fn');
+	 var uidRef=document.getElementById('uid');
+	 var pwdRef=document.getElementById('pwd');
+	 var emailRef=document.getElementById('email');
+	 var resRef=document.getElementById('res');
+	//get values;
+	var fn=fnRef.value;
+	var uid=uidRef.value;
+	var pwd=pwdRef.value;
+	var email=emailRef.value;
+	//prepare userObject
+	var oUser={
+	   'fn':fn,
+	   'uid':uid,
+	   'pwd':pwd,
+	   'email':email
+	}
+	//get data from local storeage
+    var sUsers=localStorage.getItem('users');
+	var aUsers=[];
+	if(sUsers==null){
+	  aUsers.push(oUser);
+	  sUsers=JSON.stringify(aUsers);
+	  localStorage.setItem('users',sUsers);
+	}else{
+      aUsers=JSON.parse(sUsers);
+	  //check unique identity
+	 var isUserExist= aUsers.some(function(obj){
+         return obj.uid == oUser.uid
+	  });
+      if(isUserExist){
+	       resRef.innerHTML="U r entered uid is already registered";
+	  }else{
+
+	  aUsers.push(oUser);
+	  sUsers=JSON.stringify(aUsers);
+	  localStorage.setItem('users',sUsers);
+	  resRef.innerHTML="U R Registered Successfully";
+	  }
+	 
+	   
+	}
+	 fnRef.value='';
+	 uidRef.value='';
+	 pwdRef.value='';
+	 emailRef.value='';
+     
+ 
+	var table=document.getElementsByTagName('table')[0];
+	var newrow=table.insertRow(table.rows.length)
+	var cell1=newrow.insertcell(0);
+	var cell2=newrow.insertcell(1);
+	var cell3=newrow.insertcell(2);
+	var cell4=newrow.insertcell(3);
+	
+	cell1.innertext=fn;
+	cell2.innertext=uid;
+	cell3.innertext=pwd;
+	cell4.innertext=email;
+  };
+</script>
+</html>

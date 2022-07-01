@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Add sum
+        </title>
+        <script>
+         function btnadd(){
+            var fno=document.getElementById('fn');
+            var lno=document.getElementById('ln');
+            var sum=document.getElementById('res');
+         var resRef=document.querySelector('span');
+            var fno=Number(fno.value);
+            var lno=Number(lno.value);
+    //caluculate sum
+             var sum=fno+lno;
+    //show the out to end user
+              res.innerHTML=sum;
+              debugger;
+              if(sum > 100){
+                  resRef.style.color='red'
+                 /* resRef.classList.remove('cb')
+                  resRef.classList.add('cr')*/
+              }else{
+                  resRef.style.color='blue'
+                  /*resRef.classList.add('cb')
+                  resRef.classList.remove('cr')*/
+              }
+         }
+        </script>
+    </head>
+fno<input/ id="fn"> <br>
+lno<input/ id="ln"> <br>
+<button onclick="btnadd()" value="add">Sum</button>
+<span id="res"></span>
+</html>
