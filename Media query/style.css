@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0%;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: capitalize;
+}
+
+.Parent{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+h1{
+    margin: 50px 0;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.child2{
+    width: 50%;
+    padding: 0%;
+    text-align: center;
+}
+.child2 img{
+    width: 450px;
+}
+
+.child2 a{
+    text-align: center;
+}
+
+.child1{
+    width: 50%;
+    padding: 0 5%;
+    box-sizing: border-box;
+    text-align: justify;
+    line-height: 1.7;
+}
+
+
+/* ---------------------Media Queries------------------------ */
+
+
+
+/* ---------------------Desktop & Laptop------------------------ */
+@media (min-width:1024px){
+   h1{
+       color: seagreen;
+   }
+
+    .child1 p{
+        color:red;
+    }
+}
+
+
+/* ---------------------Tablet & Laptops------------------------ */
+@media (min-width:769px) and (max-width:1023px)
+{
+    h1{
+        text-transform: uppercase;
+    }
+    p{
+        color: sienna;
+    }
+    .child2 img{
+        width: 80%;
+        height: auto;
+    }
+}
+
+/* ---------------------Mobiles Phones------------------------ */
+
+@media (max-width: 768px) {
+    h1{
+        color: #3498db;
+    }
+    .Parent{
+       
+        display: block;
+      
+    }
+    .child2{
+        width: 100%;
+    }
+    .child1{
+        width: 100%;
+    }
+    .child2 img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width:468px){
+    .child2 img {
+        padding: 10%;
+        box-sizing: border-box;
+    }
+}
+
+/*-------------------DONT'S---------------- */
+ /* h1{
+     color:yellow;
+
+
+     if you suposse provide extra css property by mistake it will override all the previous property
+ } */
+ 
