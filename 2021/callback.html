@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dcallback with example</title>
+</head>
+<body>
+    <input type="button" value="give cards to print" onclick="fnFamily()" />
+</body>
+<script>
+    //callback example\
+     
+ /*we passed a function as an arguement to  printCards(distributeCards); and that function is called with another
+ reference cb(); is called as callback function */
+
+    function fnFamily(){
+        console.log("fnFamily called");
+        //call the printCards function Action-1 here
+        //here the aurgument function passed as parameter
+        printCards(distributeCards);
+    }
+
+    //pass one callback function as argument in printCards
+    function printCards(cb){
+        console.log("Printing card called");
+        setTimeout(function(){
+            console.log("Cards printing completed");
+            cb();
+        },10000)
+    }
+
+    function distributeCards(){
+        console.log("distribution card called")
+    }
+</script>
+
+
+</html>
+

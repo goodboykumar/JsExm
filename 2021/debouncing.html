@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing</title>
+</head>
+<body>
+    <b>Product Name</b> <input onkeypress="fnChange()"/>
+    <span> </span>
+</body>
+
+<script>
+    var i=0;
+    var timer;
+    var spanRef = document.querySelector("span");
+
+    function fnChange(){
+        clearTimeout(timer);
+        timer=setTimeout(function(){
+            sendReq();
+        },1000) //inthis 1min you can write toomany lines of code mostly used in shopping website search bar
+    }
+
+    function sendReq(){
+        i += 1;
+        spanRef.innerText = i + "(s) request go to the server";
+    }
+</script>
+</html>

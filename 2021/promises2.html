@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prmoises with example</title>
+</head>
+
+<body>
+    <input type="button" value="give cards to print" onclick="fnFamily()" />
+</body>
+<script>
+    //Promises example
+    /* we dont need to pass the function as an arguement here */
+
+    function fnFamily() {
+        console.log("fnFamily called");
+        //call the printCards function Action-1 here
+        //here the aurgument function passed as parameter
+        var promise= printCards(); //here printcard returns me a promise and that one we are holding with variable
+        promise.then(function(){
+        distributeCards()  //for success 
+        },function(){
+            console.log("something went wrong and it is the error callback as like .catch")
+            //this is the 2nd way to for error callback
+        })
+        promise.catch(function(){
+            console.log("something went wrong")
+        })
+        promise.finally(function(){
+            console.log("I am always called")
+        })
+    }
+
+    //we will provide the promise here  and resolve,reject are the two function passed as an arguement now the printcard
+    //function need to inform to the function family that the work is completed
+    function printCards() {
+      return  new Promise(function (resolve,reject) {
+            console.log("Printing card called");
+            setTimeout(function () {
+                var isSuccess=true;
+                if(isSuccess){
+                console.log("Cards printing completed");
+               return Promise.resolve();
+                }
+                else{
+                    console.log("Cards printing not completed")
+                  return  Promise.reject();
+                }              
+               
+         }, 5000)
+        })
+
+    }
+
+    function distributeCards() {
+        console.log("distribution card called")
+    }
+</script>
+
+Promise in javascript is considered as a class and alert is a method write in console and check Now Promise is a
+class and calss have variables and methods and we can access that one using "Promise.prototype",
+i)Promise is a class
+ii)Promise take 1 argument while creating an object that type of aurgument is "function"
+iii)Promise class contains 3 members .then , .catch , .finally as accesing object.
+
+</html>

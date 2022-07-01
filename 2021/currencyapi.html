@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange</title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+
+            //get the form
+            document.querySelector('form').onsubmit = function () {
+
+                return false;
+            }
+
+            fetch('https:api.exchangeratesapi.io/latest?base=USD')
+                //just because it is declared in single line
+                .then(response => response.json())
+                .then(data => {
+
+                    //what user have provided checked here as
+                    const currency = document.querySelector('#currency').value.toUpperCase();
+
+                    const rate = data.rates[currency];
+                    console.log(data);
+                    if (rate !== undefined) {
+                        //Here the longlength number will not be shown after . it will show 3 digits
+                        document.querySelector('#result').innerHTML = `1 USD is equal to ${rate.toFixed} ${currency}.`;
+                    } else {
+                        document.querySelector('#result').innerHTML = 'Invalid Currency'
+                    }
+
+                })
+                .catch(error => {
+                    console.log('Error', error)
+                })
+        });
+    </script>
+</head>
+
+<body>
+    <form>
+        <input id="currency" placeholder="Currency" type="text">
+        <input type="submit" value="Convert">
+    </form>
+    <div id="result">
+
+    </div>
+</body>
+
+</html>
+
+<!-- Note: if the data what you are searching is not there and it returns as undefined, if it there than it will print -->
