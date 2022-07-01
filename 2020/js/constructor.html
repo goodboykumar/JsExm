@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Creating constructor function
+        </title>
+    </head>
+    <body>
+        Check console for result
+    </body>
+    <script>
+        function Person(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        var person1 = new Person("sanjay", 23,"male");
+        console.log(person1);
+
+        var person2 = new Person("subham", 19,"male");
+        console.log(person2);
+    </script>
+</html>

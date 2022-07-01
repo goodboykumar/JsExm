@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The JavaScript <i>this</i> Keyword</h2>
+
+
+
+
+<p id="geT"></p>
+<script>
+// Create an object:
+var person = {
+  name: "Sanjay",
+  lname: "Khosla",
+  fullname: function fullname(){
+    return person.name + " "+ person.lname;
+  }
+};
+
+// Display data from the object:
+document.getElementById('geT').innerHTML = person.fullname();
+</script>
+
+</body>
+</html>

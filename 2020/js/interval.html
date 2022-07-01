@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> SetInterval using js</title>
+        <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    setInterval(count, 1000);
+                });
+                let counter = 0;
+
+                function count(){
+                    counter++;
+                    document.querySelector('#count').innerHTML = counter;
+                };
+
+        </script>
+    </head>
+    <body>
+        <h1 id="count">0</h1>
+    </body>
+</html>

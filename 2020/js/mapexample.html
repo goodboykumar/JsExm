@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map example-1</title>
+</head>
+<body>
+    <script>/* Map method will have a callback function and here we can perform same 
+    // operation to each element e.g:+1 it will add 1 to each value */
+    //     let arr = [10,20,30,40,50];
+    //     let newArr = arr.map((value,i) => {
+    //          value++;
+    //          return value;
+    //         //console.log(value);
+    //         //here in parameter part we can provide 3 argument value,i,array and 
+    //         //we write return statement to get the new array
+    //     })
+
+    //     console.log(newArr)
+
+    let arr = [
+        {price: "100", product:"Mobile"},
+        {price: "101", product:"laptop"},
+        {price: "102", product:"tablet"},
+        {price: "103", product:"Desktop"}
+    ];
+
+    let newArr = arr.map((value) => {
+        return value.product;
+        //console.log(value.price)
+        //shortcut
+        //arr.map(value => value.product);
+    })
+    console.log(newArr);
+
+    let ary = [11,4,3,8];
+
+    let newAry = ary.map((test) => {
+        return test*10;
+    })
+    console.log(newAry)
+
+
+    //--------------------------------------------
+    
+    </script>
+    
+</body>
+</html>

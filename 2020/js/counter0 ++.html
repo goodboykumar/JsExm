@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            QuerySelector using Id
+        </title>
+        <script>
+            //define the variable
+            let counter = 0;
+            //call the function
+            function query0(){
+                counter++;
+                document.querySelector("#count").innerHTML= counter;
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1 id="count"> 0</h1>
+        <button onclick="query0()">click here ++</button>
+    </body>
+</html>

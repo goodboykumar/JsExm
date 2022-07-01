@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Making to-do list
+            <!--You can add disable property to submit button for not to create empty task-->
+        </title>
+        <script>
+             document.addEventListener('DOMContentLoaded', () =>{
+                 document.querySelector('#new-task').onsubmit = () => {
+                //create new item for the list
+                const li = document.createElement('li');
+                li.innerHTML = document.querySelector("#task").value;
+
+                //Add new item to the task list
+                document.querySelector("#tasks").append(li);
+
+                //Clear input field
+                document.querySelector('#task').value = '';
+
+                //stop form for submitting
+                return false;
+            };
+             });
+
+                 
+    
+        </script>
+    </head>
+    <body>
+        <h1>Tasks</h1>
+        <ul id="tasks"> </ul>
+        <form id="new-task">
+            <input id="task" type="text" placeholder="New Task" required/>
+            <input type="submit">
+        </form>
+
+    </body>
+</html>
