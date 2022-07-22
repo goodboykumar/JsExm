@@ -1,0 +1,7 @@
+Here i have used context api and did this project i had take help of todo tasks from github online resource and tried something
+from my side also the complete task should show strike i tried but somewhere i am lacking.
+Here i am submitting the code kindly check.
+
+1) used local storage to hold the data and used uuid for unique id.
+2)i didn't use redux cause i am having basic knowledge on it unable to work with complex data.
+3)also i have basic understanding of firebase and connecting it with react i have practice this once only.
