@@ -1,0 +1,6 @@
+I have created two Pages here i have provided routing and used Hooks and storing the data in Local Storage
+
+-In the first page the description is given of Topic conducted by which faculty at what time.
+- Second Page consist of Creating the task suppose You are Principal You will create Particular task for the faculty member
+    for your reference and here the data is being stored into Localstorage, by button click operation you can manupulate the
+    data inside the task bar.
