@@ -1,0 +1,4 @@
+You have to do npm install for my-contact & server folder.
+-------------------------------------------------------
+->it is a crud application connected with db.json
+->consisting of routing with v6 and different different api calls design with bootstrap design.
