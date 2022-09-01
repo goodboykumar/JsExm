@@ -1,0 +1,268 @@
+
+
+<html>
+    <body>
+    <h1>Hello Objects</h1>
+    <script>
+        //objects in Js 
+        
+        const user={
+            name:"sanjay",
+            age:25,
+            "like this object":true
+        }
+        //console.log(user)
+        
+       // delete user.age
+     
+        //accessing the key
+        console.log(user["like this object"],"Here we are accessing the 3rd key")
+        
+        //let me delete that property of "like this object"
+       
+       // delete user["like this object"]
+       
+       
+       /*  Interview question on delete */
+       const func =(function (a){
+           delete a 
+           return a
+       }
+           )(5)
+           console.log(func)
+           
+           /*  It is using fe function it is directly called when the page loaded
+           1.Here the delete keyword will not affect on a because it is a local var
+           2.it will provide 5 in the console
+           
+           */
+        /* Adding dynamically key and value pairs with obj */
+        
+        const property="firstName"
+        const Name = "sanjay"
+        
+        const nameUser={
+            //property:Name
+            [property]:Name
+        }
+        //console.log(nameUser)
+        console.log(nameUser.firstName)
+        
+        /* Here inside nameUser we have to wrap the property key as [property] to get 
+        firstName as key*/
+        
+        
+        /*  --If we want to loop through each key and print values so using for-in loop-- */
+        
+        const book = {
+            author:"Simon Sinek",
+            publishedOn:2009,
+            inStock:true
+        };
+        
+        //getting the keys for book obj IMPORTANT
+        // for(key in book){
+        //     console.log(key)
+        // }
+        
+        //to get values of all IMPORTANT
+         for(key in book){
+            console.log(book[key])
+        }
+        
+        /* 1)-------------------------- */
+        const obj={
+            a:"one",
+            b:"two",
+            a:"three"
+        }
+        
+        console.log(obj,"a value will be updated as three");
+        
+            /* 2)-------------------------- */
+        let nums={
+            a:200,
+            b:62,
+            c:"some value"
+        }
+        
+        
+        //calling func
+       
+        
+        let multiplyBy = (theNum) =>{
+            //need to apply for in loop for values
+            for(key in theNum){
+                //checking the value inside it as num or not
+                if(typeof theNum[key] === "number"){
+                    theNum[key] *= 2
+                }
+            }
+        }
+        
+         multiplyBy(nums);
+        console.log(nums)
+           /* 3)-------------------------- whats the output */
+           
+         const a1={}
+         const b1={key:"b1"}
+         const c1={key:"c1"}
+         
+         a1[b1]=123
+         a1[c1]=456
+        //  console.log(a1[b1],"here we are accessing b1 inside a1")
+        console.log(a1)
+        //when a1 tries a object to be String forcefully it returns [object Object]
+        //for this [object Object] solution we need to make it stringify as line=134
+        
+         /* 4)--------------------------  */
+        
+          //Json Object
+            /* 
+               String=> Object: parse();
+               Object=>Sring: stringfy();
+            */
+            let student = {
+                name:"Sanjay",
+                age:24,
+                course : "UI Technologies",
+                College:"Wesley"
+            };
+            console.log(student);
+    
+            //converting object to string
+            let StudentStr=JSON.stringify(student);
+            console.log(StudentStr);
+    
+            //converting string into object
+            let newStudent = JSON.parse(StudentStr);
+            console.log(newStudent);
+         /* 5)-------------------------- whats the output */
+         console.log([..."Lydia"])
+         //output (5) ['L', 'y', 'd', 'i', 'a']
+
+             /* 6)-------------------------- whats the output */
+        const user1={name:"Lydia", age:21};
+        const admin = {admin:true, ...user1}
+       
+             /* 7)-------------------------- whats the output */
+        const settings = {
+            username:"Piyush",
+            level:26,
+            health:96
+        }
+        const data1 = JSON.stringify(settings, ["level","health"])
+        console.log(data1,"to stringify the required property")
+             /* 8)-------------------------- whats the output */
+        const shape = {
+            radius:10,
+            diameter(){
+                return this.radius * 2;
+            },
+            perimeter: () => 2* Math.PI * this.radius
+        }
+
+        //this keyword with arrow function refers to window obj
+        console.log(shape.diameter())
+        console.log(shape.perimeter())
+
+        //the output varies on function written style
+
+               /* 9)-------------------------- whats the output */
+      let user2 = {
+        name:"Piyush",
+        age:25,
+        fullName:{
+            first:"sanjay",
+            last:"sharma"
+        }
+      };
+      const {name} = user2;
+      console.log(name);
+
+      //if you have particular name variable above then the approach
+
+      /*
+      const name = "Roadside Coder";
+      const {name:myName} = user
+      console.log(myName)
+
+      //note= it is for re-naming
+      */
+    
+
+      //if you have nested obj further destructuring from 175 no.
+      const {fullName:{first}} = user2
+      console.log(first)
+
+               /* 10)-------------------------- whats the output */
+      function getItems(fruitList,favoriteFruit, ...args){
+        return [...fruitList, ...args, favoriteFruit ]
+      }
+      console.log(getItems(["banana","apple"],"pear","orange"))
+        
+      //note: rest parameter should be the last parameter after thiis
+      //rest param do not define anything
+
+               /* 11)-------------------------- whats the output */
+      
+      let c={greeting:"hey"}
+      let d;
+      d=c;
+      c.greeting = "Hello";
+      console.log(d.greeting) //Hello
+
+      //Note: In the above example the c is referenced with d so 
+      //if c changes it affect d also
+
+               /* 12)-------------------------- whats the output */
+      console.log({a:1} == {a:1})
+      console.log({a:1} === {a:1})
+
+      //Note:both console will return false because object reference
+      //address is different for both console as per allocate memory
+
+                /* 13)-------------------------- whats the output */
+     let person = {name:"Sonia"}
+     const members = [person];
+     person = null
+     
+     console.log(members)
+     //note:here when we assigning member into person it takes 0th index
+      //if we provide person.name then it will provide null in CONSOLE
+
+
+                 /* 14)-------------------------- whats the output */
+     const val = {number:10}
+     const multiply = (x = {...val}) => {
+        console.log((x.number*=2))     
+     }
+
+     multiply(); //20
+     multiply(val) //20 as per the variable and it will update the val
+     multiply(val) //40 cause the val updated as 20 before so now 40
+
+     /*Shallow copy deep copy =============*/
+     let userRef = {
+        name:"Roadside Coder",
+        class:"Obj interview qa",
+        age:24
+     }
+
+    //  ----------- 3 ways ----------
+       //1
+    // const objClone = Object.assign({}, userRef)
+      //2
+    //const objClone = JSON.parse(JSON.stringify(userRef))
+        //3
+    const objClone = {...userRef}
+    objClone.name = "Piyush"
+
+
+    // console.log(objClone,"check this")
+    console.log(userRef,objClone )
+
+
+    </script>
+    </body>
+    </html>
