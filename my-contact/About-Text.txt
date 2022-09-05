@@ -3,5 +3,5 @@ You have to do npm install for my-contact & server folder.
 ->it is a crud application connected with db.json
 ->consisting of routing with v6 and different different api calls design with bootstrap design.
 =========================
-About project install
+About project install = npm i json-server
 npx json-server --watch server/db.json --port 9000
