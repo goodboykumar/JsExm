@@ -74,18 +74,14 @@ const ContactList = () => {
 
   //search contacts
   const searchContacts = (event) => {
-    setQuery({
-      ...query,
-      text: event.target.value
-    });
+    setQuery({...query, text : event.target.value });
     //getting the filter searched contact here
-    let theContacts = state.contacts.filter((contact) => {
+    let theContacts = state.contacts.filter(contact => {
       // in search string whether you type it will convert to lowercase and apply cond
-      return state.contact.name
-        .toLowerCase()
-        .includes(event.target.value.toLowerCase());
-      console.log(theContacts, "it is the filtered data");
+      return contact.name.toLowerCase().includes(event.target.value.toLowerCase());
+     
     });
+    console.log(theContacts, "it is the filtered data");
     setState({
       ...state,
       filterContacts: theContacts
@@ -153,7 +149,7 @@ const ContactList = () => {
                 {filterContacts.length > 0 &&
                   filterContacts.map((contact) => {
                     return (
-                      <>
+                      <React.Fragment key={contact.id}>
                         <div className="col-md-6" key={contact.id}>
                           <div className="card my-2">
                             <div className="card-body" >
@@ -220,7 +216,7 @@ const ContactList = () => {
                             </div>
                           </div>
                         </div>
-                      </>
+                      </React.Fragment>
                     );
                   })}
               </div>
