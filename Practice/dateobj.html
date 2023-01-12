@@ -13,6 +13,11 @@
 
         let date=new Date();
         console.log(date);
+        
+        //Date and Time Format like this ("YYYY-MM-DD HH:mm:ss")
+        const currentDate = new Date();
+        const dateString = currentDate.toISOString().slice(0,19).replace('T',' ');
+        console.log(dateString)
 
         //proper date
         let currentDate = new Date().toLocaleDateString();
