@@ -132,6 +132,12 @@ let functionName= () => {
 
         }
         console.log(TriangleFour(msg));
+        
+        
+        //Removing numbers from the string and spiltiing the string after "." to get "hello_io"
+        let str = "hello_856_io.in";
+        let result = str.replace(/[0-9]/g, '').split('.')[0];
+        console.log(result);
 
           
 
