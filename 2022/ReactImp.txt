@@ -1,0 +1,55 @@
+NOTE
+This provides error here we are directly manipulating array of objects, it's not a good practice for useEffect() hook.
+In this code, you are using the useEffect hook to update the id property of each object in the items array. The useEffect hook depends on the items state, as specified in the dependencies array [items].
+
+However, you are modifying the id property of each object directly, rather than creating a new array with the updated values. This can cause unexpected behavior, as React relies on the fact that objects and arrays are treated as reference values and uses this to determine when to re-render components.
+
+To avoid this issue, you should create a new array with the updated values, rather than modifying the existing array directly:
+
+import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [items, setItems] = useState([
+    { id: 1, name: 'Item 1' },
+    { id: 2, name: 'Item 2' },
+    { id: 3, name: 'Item 3' },
+  ]);
+
+  useEffect(() => {
+   if(items){
+        items.map((e)=>{
+          e['id'] = (100+ e['id']).toFixed(2)
+          return e
+        })
+        
+        setFilteredValue(level_data[0])
+        setInitialFiltredVal(level_data[0])
+      }
+  }, [items]);
+
+  return (
+    <div>
+      {items.map(item => (
+        <p key={item.id}>{item.name}</p>
+      ))}
+    </div>
+  );
+}
+
+//solution
+useEffect(() => {
+  if (items) {
+    const updatedItems = items.map(e => {
+      const updatedItem = { ...e };
+      updatedItem.id = (100 + e.id).toFixed(2);
+      return updatedItem;
+    });
+
+    setItems(updatedItems);
+  }
+}, [items]);
+
+This way, you're creating a new array with the updated values, and using setItems to update the state with the new array, which will trigger
+a re-render and ensure that the component displays the updated values correctly.
+
+
