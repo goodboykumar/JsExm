@@ -139,6 +139,28 @@ let functionName= () => {
         let result = str.replace(/[0-9]/g, '').split('.')[0];
         console.log(result);
 
+
+        // Generate 20 random numbers and store them in an array
+const numbers = [];
+for (let i = 0; i < 20; i++) {
+  numbers.push(Math.floor(Math.random() * 100) + 1);
+}
+
+// Print the numbers array
+console.log("Numbers Array:", numbers);
+
+// Iterate over the array and add "-" between even numbers
+const modifiedNumbers = numbers.map((num, index) => {
+  if (index > 0 && num % 2 === 0 && numbers[index - 1] % 2 === 0) {
+    return "-";
+  }
+  return num;
+});
+
+// Print the modified numbers array
+console.log("Modified Numbers Array:", modifiedNumbers);
+
+
           
 
 
